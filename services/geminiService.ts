@@ -1,10 +1,25 @@
 import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
 
-const apiKey = process.env.API_KEY || '';
-const ai = new GoogleGenAI({ apiKey });
+const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY || '';
+
+const getClient = () => {
+  if (!apiKey) return null;
+  try {
+    return new GoogleGenAI({ apiKey });
+  } catch (error) {
+    console.error("Gemini client init error:", error);
+    return null;
+  }
+};
 
 export const generateFanArt = async (prompt: string, base64Image?: string): Promise<string | null> => {
   try {
+    const ai = getClient();
+    if (!ai) {
+      console.warn("Gemini API key missing; fan art generation disabled.");
+      return null;
+    }
+
     const model = 'gemini-2.5-flash-image'; // Using 2.5 flash image for fast, accessible generation
     
     let contents: any = { parts: [] };
@@ -47,6 +62,11 @@ export const generateFanArt = async (prompt: string, base64Image?: string): Prom
 
 export const chatWithYGPT = async (message: string, history: {role: string, parts: {text: string}[]}[]): Promise<string> => {
     try {
+        const ai = getClient();
+        if (!ai) {
+            return "I’m here and ready to help! The AI features need a GEMINI_API_KEY to respond in real time.";
+        }
+
         const chat = ai.chats.create({
             model: 'gemini-3-flash-preview',
             history: history,
