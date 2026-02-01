@@ -20,7 +20,16 @@ const Logo: React.FC<LogoProps> = ({ className = '', variant = 'dark', showText 
                 alt="YGPT Logo" 
                 className={`object-contain ${stacked ? 'mb-4 max-w-[200px]' : 'h-10 w-auto mr-2'}`} 
             />
-
+            {showText && !stacked && (
+                 <div className="flex flex-col">
+                    <span className={`font-lemon text-xl tracking-tighter leading-none ${variant === 'dark' ? 'text-gray-800' : 'text-white'} ${textClassName}`}>
+                        <span className="text-[#F47C20]">Y</span>
+                        <span className="text-[#FDB913]">G</span>
+                        <span className="text-[#936FB1]">P</span>
+                        <span className="text-[#4EB8B9]">T</span>
+                    </span>
+                 </div>
+            )}
         </div>
       );
   }

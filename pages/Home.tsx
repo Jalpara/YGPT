@@ -98,12 +98,13 @@ const Home: React.FC = () => {
           
           {/* Badge */}
           <div className="inline-flex items-center gap-2 mb-8 px-5 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-gray-100 shadow-sm animate-fade-in-down cursor-default">
-              <span className="text-xs font-bold tracking-[0.15em] text-gray-500 uppercase">Youth for Peace. Youth for Change.</span>
+              <span className="w-2 h-2 rounded-full bg-[#00A651]"></span>
+              <span className="text-xs font-bold tracking-[0.15em] text-gray-500 uppercase">Non-Profit Organization</span>
           </div>
 
           {/* Heading - With Brand Colors */}
           <h1 className="font-lemon text-4xl sm:text-5xl md:text-6xl text-[#333] mb-8 leading-tight tracking-wide drop-shadow-sm">
-            <span className="text-[#F47C20]">Youth</span> For <span className="text-[#fdb914]">Global</span> <span className="text-[#936FB1]">Peace</span> <br className="hidden md:block"/> and <span className="text-[#4EB8B9]">Transformation</span>
+            <span className="text-[#F47C20]">Youth</span> For <span className="text-[#936FB1]">Global Peace</span> <br className="hidden md:block"/> and <span className="text-[#4EB8B9]">Transformation</span>
           </h1>
           
           {/* Subheading - Readable & Balanced */}

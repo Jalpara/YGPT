@@ -4,7 +4,7 @@ import { ColorDef, YGPTColors, SpotlightClub, Event, Badge, LeaderboardEntry, Te
 // START: LOGO CONFIGURATION
 // To change the logo, upload your image to the public/assets folder or use an external URL.
 // Then update this constant. Example: 'https://example.com/logo.png'
-export const CUSTOM_LOGO_URL = './assets/logo.avif'; // Leave empty to use the dynamic SVG logo
+export const CUSTOM_LOGO_URL = ''; // Leave empty to use the dynamic SVG logo
 // END: LOGO CONFIGURATION
 
 export const NAV_LINKS = [
