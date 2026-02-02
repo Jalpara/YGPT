@@ -10,6 +10,45 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
+      :root {
+        --color-brand-orange: #F47C20;
+        --color-brand-yellow: #FDB913;
+        --color-brand-purple: #936FB1;
+        --color-brand-teal: #4EB8B9;
+        --color-brand-green: #00A651;
+        --color-brand-dark: #333333;
+        --color-brand-blue: #2563EB;
+        --radius-card: 24px;
+        --radius-pill: 999px;
+        --shadow-card: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        --shadow-soft: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+      }
+
+      .bg-brand-orange { background-color: var(--color-brand-orange); }
+      .bg-brand-yellow { background-color: var(--color-brand-yellow); }
+      .bg-brand-purple { background-color: var(--color-brand-purple); }
+      .bg-brand-teal { background-color: var(--color-brand-teal); }
+      .bg-brand-green { background-color: var(--color-brand-green); }
+      .bg-brand-dark { background-color: var(--color-brand-dark); }
+
+      .text-brand-orange { color: var(--color-brand-orange); }
+      .text-brand-yellow { color: var(--color-brand-yellow); }
+      .text-brand-purple { color: var(--color-brand-purple); }
+      .text-brand-teal { color: var(--color-brand-teal); }
+      .text-brand-green { color: var(--color-brand-green); }
+      .text-brand-dark { color: var(--color-brand-dark); }
+
+      .border-brand-orange { border-color: var(--color-brand-orange); }
+      .border-brand-yellow { border-color: var(--color-brand-yellow); }
+      .border-brand-purple { border-color: var(--color-brand-purple); }
+      .border-brand-teal { border-color: var(--color-brand-teal); }
+      .border-brand-green { border-color: var(--color-brand-green); }
+      .border-brand-dark { border-color: var(--color-brand-dark); }
+
+      .fill-brand-yellow { fill: var(--color-brand-yellow); }
+      .fill-brand-orange { fill: var(--color-brand-orange); }
+      .decoration-brand-yellow { text-decoration-color: var(--color-brand-yellow); }
+
       body {
         font-family: 'Montserrat', sans-serif;
         overflow-x: hidden;
