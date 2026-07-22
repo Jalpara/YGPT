@@ -12,6 +12,7 @@ const Events: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [calendarDate, setCalendarDate] = useState(new Date());
     const [events, setEvents] = useState<Event[]>([]);
+    // Reserved for future UI (e.g. dedicated upcoming list).
     const [upcomingEvents, setUpcomingEvents] = useState<Event[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -97,7 +98,9 @@ const Events: React.FC = () => {
         // Days
         for (let i = 1; i <= daysInMonth; i++) {
             const dateObj = new Date(calendarDate.getFullYear(), calendarDate.getMonth(), i);
-            const currentDateStr = dateObj.toISOString().split('T')[0];
+            const y = calendarDate.getFullYear();
+            const m = calendarDate.getMonth();
+            const currentDateStr = `${y}-${String(m + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
             
             // Get existing events
             let dayEvents = sortedEvents.filter(e => e.date === currentDateStr);

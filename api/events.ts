@@ -55,6 +55,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     .in('status', [...PUBLIC_STATUSES])
     .gte('event_date', today)
     .order('event_date', { ascending: true })
+    // Over-fetch; buildEventsResponse slices to 20 upcoming.
     .limit(50);
 
   if (monthError || upcomingError) {
