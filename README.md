@@ -10,11 +10,21 @@ View your app in AI Studio: https://ai.studio/apps/drive/1mQVNtJI362mNTeyy8PVGR-
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
+**Prerequisites:** Node.js. Optional: [Vercel CLI](https://vercel.com/docs/cli) to mirror production serverless locally.
 
+1. Install dependencies: `npm install`
+2. Copy `.env.example` to `.env` and fill in:
+   - `GEMINI_API_KEY`
+   - `NEXT_PUBLIC_SUPABASE_URL` (or `SUPABASE_URL`)
+   - `SUPABASE_SERVICE_ROLE_KEY`
+3. Run the app (UI + `/api/events` via Vite middleware): `npm run dev`
+4. Open `http://localhost:3000/#/events`
+5. Optional production-parity API: `npm run dev:full` (requires `vercel login`)
+6. Unit tests: `npm test`
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Contact forms → Google Sheets
+
+1. Create a Sheet with tabs `Volunteer`, `Partner`, `Contact` (see design spec).
+2. Paste `docs/superpowers/scripts/ygpt-contact-apps-script.js` into Apps Script, set `SECRET`, deploy as Web app (Anyone).
+3. Set `GOOGLE_SHEETS_WEBAPP_URL` and `GOOGLE_SHEETS_SECRET` in `.env`.
+4. Submit forms at `http://localhost:3000/#/contact`.

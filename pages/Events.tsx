@@ -1,9 +1,9 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MapPin, Calendar as CalendarIcon, Clock, Search, Filter, Grid, List, ChevronLeft, ChevronRight, ChevronDown, ExternalLink, X } from 'lucide-react';
-import { EVENTS_DATA } from '../constants';
 import { Event } from '../types';
 import EventDetailsModal from '../components/EventDetailsModal';
+import { fetchEventsForMonth, toMonthKey } from '../services/eventsService';
 
 const Events: React.FC = () => {
     const [viewMode, setViewMode] = useState<'grid' | 'list' | 'calendar'>('calendar');
@@ -11,10 +11,43 @@ const Events: React.FC = () => {
     const [sortOption, setSortOption] = useState<'date-asc' | 'date-desc' | 'alpha'>('date-asc');
     const [searchTerm, setSearchTerm] = useState('');
     const [calendarDate, setCalendarDate] = useState(new Date());
+    const [events, setEvents] = useState<Event[]>([]);
+    // Reserved for future UI (e.g. dedicated upcoming list).
+    const [upcomingEvents, setUpcomingEvents] = useState<Event[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+    const [reloadToken, setReloadToken] = useState(0);
     
     // Modal state
     const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
     const [isModalVisible, setIsModalVisible] = useState(false);
+
+    useEffect(() => {
+        let cancelled = false;
+        const month = toMonthKey(calendarDate);
+
+        setLoading(true);
+        setError(null);
+        fetchEventsForMonth(month)
+            .then((data) => {
+                if (cancelled) return;
+                setEvents(data.monthEvents);
+                setUpcomingEvents(data.upcomingEvents);
+            })
+            .catch((err: unknown) => {
+                if (cancelled) return;
+                setEvents([]);
+                setUpcomingEvents([]);
+                setError(err instanceof Error ? err.message : 'Failed to load events');
+            })
+            .finally(() => {
+                if (!cancelled) setLoading(false);
+            });
+
+        return () => {
+            cancelled = true;
+        };
+    }, [calendarDate, reloadToken]);
 
     const handleOpenModal = (event: Event) => {
         setSelectedEvent(event);
@@ -27,7 +60,7 @@ const Events: React.FC = () => {
     };
 
     // Filter Logic
-    const filteredEvents = EVENTS_DATA.filter(event => {
+    const filteredEvents = events.filter(event => {
         const matchesType = filterType === 'All' || event.type === filterType;
         const matchesSearch = event.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
                               event.location.toLowerCase().includes(searchTerm.toLowerCase());
@@ -65,7 +98,9 @@ const Events: React.FC = () => {
         // Days
         for (let i = 1; i <= daysInMonth; i++) {
             const dateObj = new Date(calendarDate.getFullYear(), calendarDate.getMonth(), i);
-            const currentDateStr = dateObj.toISOString().split('T')[0];
+            const y = calendarDate.getFullYear();
+            const m = calendarDate.getMonth();
+            const currentDateStr = `${y}-${String(m + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
             
             // Get existing events
             let dayEvents = sortedEvents.filter(e => e.date === currentDateStr);
@@ -309,21 +344,37 @@ const Events: React.FC = () => {
                 </div>
 
                 {/* Content Display */}
-                <div className="min-h-[500px]">
-                    {sortedEvents.length === 0 && viewMode !== 'calendar' ? (
-                         <div className="text-center py-20 bg-white rounded-xl border border-dashed border-gray-300 animate-fade-in">
-                            <Filter size={48} className="mx-auto text-gray-300 mb-4" />
-                            <h3 className="text-xl font-bold text-gray-500">No events found</h3>
-                            <p className="text-gray-400">Try adjusting your search or filters.</p>
-                        </div>
-                    ) : (
-                        <>
-                            {viewMode === 'calendar' && renderCalendar()}
-                            {viewMode === 'grid' && renderGrid()}
-                            {viewMode === 'list' && renderList()}
-                        </>
-                    )}
-                </div>
+                {error && (
+                    <div className="mb-6 flex items-center justify-between gap-4 rounded-xl border border-red-200 bg-red-50 p-4 text-red-700">
+                        <span>{error}</span>
+                        <button
+                            type="button"
+                            onClick={() => setReloadToken((token) => token + 1)}
+                            className="font-bold underline"
+                        >
+                            Retry
+                        </button>
+                    </div>
+                )}
+                {loading ? (
+                    <div className="py-20 text-center font-medium text-gray-500">Loading events…</div>
+                ) : (
+                    <div className="min-h-[500px]" data-upcoming-count={upcomingEvents.length}>
+                        {sortedEvents.length === 0 && viewMode !== 'calendar' ? (
+                            <div className="text-center py-20 bg-white rounded-xl border border-dashed border-gray-300 animate-fade-in">
+                                <Filter size={48} className="mx-auto text-gray-300 mb-4" />
+                                <h3 className="text-xl font-bold text-gray-500">No events found</h3>
+                                <p className="text-gray-400">Try adjusting your search or filters.</p>
+                            </div>
+                        ) : (
+                            <>
+                                {viewMode === 'calendar' && renderCalendar()}
+                                {viewMode === 'grid' && renderGrid()}
+                                {viewMode === 'list' && renderList()}
+                            </>
+                        )}
+                    </div>
+                )}
 
                 {/* Reusable Event Details Modal */}
                 <EventDetailsModal 
