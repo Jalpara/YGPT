@@ -67,6 +67,10 @@ describe('inferEventType', () => {
   it('defaults to Offline', () => {
     expect(inferEventType('Community Hall', 'https://maps.google.com')).toBe('Offline');
   });
+  it('detects online from venue_gmaps_link when location is generic', () => {
+    expect(inferEventType('Community Hall', 'https://zoom.us/j/123456789')).toBe('Online');
+    expect(inferEventType('Main Office', 'https://meet.google.com/abc-defg-hij')).toBe('Online');
+  });
 });
 
 describe('mapRowToEvent', () => {

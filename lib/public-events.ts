@@ -51,9 +51,9 @@ export function formatEventTime(start: string | null, end: string | null): strin
 
 export function inferEventType(
   location: string | null,
-  _venueGmapsLink: string | null
+  venueGmapsLink: string | null
 ): 'Online' | 'Offline' {
-  const hay = (location ?? '').toLowerCase();
+  const hay = `${location ?? ''} ${venueGmapsLink ?? ''}`.toLowerCase();
   if (/(zoom|google meet|meet\.google|teams|online|youtube|webinar|virtual)/.test(hay)) {
     return 'Online';
   }
