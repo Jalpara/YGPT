@@ -43,7 +43,7 @@ export function apiEventsDevPlugin(): Plugin {
             if (!parsed.ok) {
               res.statusCode = 400;
               res.setHeader('Content-Type', 'application/json');
-              res.end(JSON.stringify({ error: parsed.error }));
+              res.end(JSON.stringify({ error: (parsed as { error: string }).error }));
               return;
             }
 
@@ -51,7 +51,13 @@ export function apiEventsDevPlugin(): Plugin {
             res.statusCode = result.ok ? 200 : result.status;
             res.setHeader('Content-Type', 'application/json');
             res.setHeader('Cache-Control', 'no-store');
-            res.end(JSON.stringify(result.ok ? { ok: true } : { error: result.error }));
+            res.end(
+              JSON.stringify(
+                result.ok
+                  ? { ok: true }
+                  : { error: (result as { error: string }).error }
+              )
+            );
           } catch (err) {
             console.error('api-contact-dev middleware failed', err);
             res.statusCode = 500;

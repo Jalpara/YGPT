@@ -68,12 +68,12 @@ const Header: React.FC = () => {
                           >
                               Our Founder
                           </Link>
-                          <Link 
+                          {/* <Link 
                             to="/meet-my-maitreya" 
                             className={`block px-4 py-2.5 text-sm rounded-lg transition-colors ${isActive('/meet-my-maitreya') ? 'bg-orange-50 text-[#F47C20] font-bold' : 'text-gray-600 hover:bg-gray-50 hover:text-[#936FB1]'}`}
                           >
                               Meet My Maitreya
-                          </Link>
+                          </Link> */}
                           <Link 
                             to="/impact" 
                             className={`block px-4 py-2.5 text-sm rounded-lg transition-colors ${isActive('/impact') ? 'bg-orange-50 text-[#F47C20] font-bold' : 'text-gray-600 hover:bg-gray-50 hover:text-[#936FB1]'}`}
@@ -96,33 +96,6 @@ const Header: React.FC = () => {
               </Link>
             ))}
 
-            {/* More Dropdown */}
-            <div 
-                className="relative group px-2"
-                onMouseEnter={() => setActiveDropdown('more')}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
-                  <button 
-                    className={`flex items-center space-x-1 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
-                        isActive('/fan-art') ? 'text-[#F47C20] bg-orange-50' : 'text-gray-600 hover:text-[#936FB1] hover:bg-gray-50'
-                    }`}
-                  >
-                      <span>More</span>
-                      <ChevronDown size={14} className={`transform transition-transform duration-200 ${activeDropdown === 'more' ? 'rotate-180' : ''}`} />
-                  </button>
-                  
-                  {/* Dropdown Menu */}
-                  <div className={`absolute top-full left-0 w-48 pt-2 transition-all duration-200 transform origin-top-left ${activeDropdown === 'more' ? 'opacity-100 scale-100 translate-y-0 visible' : 'opacity-0 scale-95 -translate-y-2 invisible'}`}>
-                      <div className="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden p-1">
-                          <Link 
-                            to="/fan-art" 
-                            className={`block px-4 py-2.5 text-sm rounded-lg transition-colors ${isActive('/fan-art') ? 'bg-orange-50 text-[#F47C20] font-bold' : 'text-gray-600 hover:bg-gray-50 hover:text-[#936FB1]'}`}
-                          >
-                              Member Creations
-                          </Link>
-                      </div>
-                  </div>
-              </div>
              
              <div className="pl-2">
                 <Link to="/get-involved" className="bg-[#00A651] text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-green-700 transition shadow-lg transform hover:-translate-y-0.5 flex items-center">
@@ -175,7 +148,7 @@ const Header: React.FC = () => {
                 >
                     Our Founder
                 </Link>
-                <Link
+                {/* <Link
                     to="/meet-my-maitreya"
                     onClick={() => setIsOpen(false)}
                     className={`block px-3 py-2 rounded-lg text-base font-medium ${
@@ -183,7 +156,7 @@ const Header: React.FC = () => {
                     }`}
                 >
                     Meet My Maitreya
-                </Link>
+                </Link> */}
                 <Link
                     to="/impact"
                     onClick={() => setIsOpen(false)}

@@ -9,12 +9,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const parsed = validateContactPayload(req.body);
   if (!parsed.ok) {
-    return res.status(400).json({ error: parsed.error });
+    // Cast: project tsconfig has no strictNullChecks, so discriminant narrowing is unreliable.
+    return res.status(400).json({ error: (parsed as { error: string }).error });
   }
 
   const result = await submitContactToSheet(parsed.data);
   if (!result.ok) {
-    return res.status(result.status).json({ error: result.error });
+    return res
+      .status(result.status)
+      .json({ error: (result as { error: string }).error });
   }
 
   return res.status(200).json({ ok: true });

@@ -103,9 +103,7 @@ describe('submitContactToSheet', () => {
     );
     const result = await submitContactToSheet(payload);
     expect(result.ok).toBe(false);
-    if (!result.ok) {
-      expect(result.status).toBe(502);
-      expect(result.error).toBe('Failed to save submission');
-    }
+    expect(result.status).toBe(502);
+    expect((result as { error: string }).error).toBe('Failed to save submission');
   });
 });
