@@ -21,3 +21,10 @@ View your app in AI Studio: https://ai.studio/apps/drive/1mQVNtJI362mNTeyy8PVGR-
 4. Open `http://localhost:3000/#/events`
 5. Optional production-parity API: `npm run dev:full` (requires `vercel login`)
 6. Unit tests: `npm test`
+
+## Contact forms → Google Sheets
+
+1. Create a Sheet with tabs `Volunteer`, `Partner`, `Contact` (see design spec).
+2. Paste `docs/superpowers/scripts/ygpt-contact-apps-script.js` into Apps Script, set `SECRET`, deploy as Web app (Anyone).
+3. Set `GOOGLE_SHEETS_WEBAPP_URL` and `GOOGLE_SHEETS_SECRET` in `.env`.
+4. Submit forms at `http://localhost:3000/#/contact`.

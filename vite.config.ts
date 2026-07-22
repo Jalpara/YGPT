@@ -10,6 +10,8 @@ export default defineConfig(({ mode }) => {
       'SUPABASE_URL',
       'NEXT_PUBLIC_SUPABASE_URL',
       'SUPABASE_SERVICE_ROLE_KEY',
+      'GOOGLE_SHEETS_WEBAPP_URL',
+      'GOOGLE_SHEETS_SECRET',
     ]) {
       if (env[key] && !process.env[key]) {
         process.env[key] = env[key];
