@@ -61,9 +61,10 @@ const Founder: React.FC = () => {
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="flex flex-col md:flex-row items-center justify-center gap-12">
                         {/* Portrait */}
-                        <div className="w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden border-8 border-white shadow-2xl bg-[#936FB1] flex items-center justify-center flex-shrink-0 text-white text-8xl font-serif italic">
-                            M
-                        </div>
+                        <img 
+                        src="/assets/dada.webp"
+                        alt="Dada" 
+                          />
                         
                         {/* Text */}
                         <div className="text-center md:text-left max-w-lg">

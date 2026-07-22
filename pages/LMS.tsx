@@ -23,14 +23,6 @@ const Transform: React.FC = () => {
                     <p className="text-xl md:text-2xl font-light opacity-90 max-w-2xl mx-auto mb-10 leading-relaxed">
                         Unlock your highest potential with our curated workshops and initiatives.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link to="/transform/watch/seminars" className="bg-[#FDB913] text-[#333] px-10 py-4 rounded-full font-bold hover:bg-yellow-400 transition shadow-lg flex items-center justify-center transform hover:scale-105 duration-200">
-                            <PlayCircle size={20} className="mr-2" /> Start Watching
-                        </Link>
-                        <a href="#initiatives" className="bg-white/10 border border-white/30 text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-[#936FB1] transition backdrop-blur-md flex items-center justify-center">
-                            Explore Initiatives
-                        </a>
-                    </div>
                 </div>
             </div>
 
@@ -98,9 +90,7 @@ const Transform: React.FC = () => {
                         {/* 1. Youth Development Seminars */}
                         <div className="flex flex-col md:flex-row items-center gap-12">
                             <div className="md:w-1/2">
-                                <div className="h-[400px] w-full bg-[#F47C20]/10 rounded-3xl flex items-center justify-center">
-                                    <Users size={100} className="text-[#F47C20]" />
-                                </div>
+                                    <img src="/assets/transformation.avif" alt="Youth Development Seminars" className="h-[400px] w-full object-cover rounded-3xl shadow-lg" />
                             </div>
                             <div className="md:w-1/2">
                                 <div className="flex items-center mb-4">
@@ -114,15 +104,10 @@ const Transform: React.FC = () => {
                                     Blending fun, interaction, and the real-life experiences of our facilitators, these sessions have positively impacted countless lives.
                                 </p>
                                 <div className="flex flex-wrap gap-4">
-                                    <Link to="/transform/watch/seminars" className="text-[#F47C20] font-bold uppercase tracking-wider text-sm flex items-center hover:underline">
+                                    <Link to="https://www.youtube.com/@YGPTINDIA" className="text-[#F47C20] font-bold uppercase tracking-wider text-sm flex items-center hover:underline">
                                         Watch Highlights <ArrowRight size={16} className="ml-2" />
                                     </Link>
-                                    <button 
-                                        onClick={() => setIsSeminarModalOpen(true)}
-                                        className="bg-[#F47C20] text-white px-5 py-2 rounded-lg font-bold text-xs uppercase tracking-wider shadow hover:bg-orange-600 transition flex items-center"
-                                    >
-                                        <ClipboardCheck size={16} className="mr-2" /> Register / Mark Attendance
-                                    </button>
+
                                 </div>
                             </div>
                         </div>
@@ -130,9 +115,7 @@ const Transform: React.FC = () => {
                         {/* 2. Youth Circle */}
                         <div className="flex flex-col md:flex-row-reverse items-center gap-12">
                             <div className="md:w-1/2">
-                                <div className="h-[400px] w-full bg-[#2563EB]/10 rounded-3xl flex items-center justify-center">
-                                    <Globe size={100} className="text-[#2563EB]" />
-                                </div>
+                                <img src="/assets/youthcircle.avif" alt="Youth Circle" className="h-[400px] w-full object-cover rounded-3xl shadow-lg mb-6 md:mb-0" />
                             </div>
                             <div className="md:w-1/2">
                                 <div className="flex items-center mb-4">
@@ -147,7 +130,7 @@ const Transform: React.FC = () => {
                                     <li className="flex items-start"><span className="w-1.5 h-1.5 bg-[#2563EB] rounded-full mt-2 mr-2"></span>Diverse topics: overcoming challenges, acceptance, loneliness.</li>
                                     <li className="flex items-start"><span className="w-1.5 h-1.5 bg-[#2563EB] rounded-full mt-2 mr-2"></span>Q&A with open and honest expression.</li>
                                 </ul>
-                                <Link to="/transform/watch/youth-circle" className="text-[#2563EB] font-bold uppercase tracking-wider text-sm flex items-center hover:underline">
+                                <Link to="https://www.youtube.com/@YGPTINDIA" className="text-[#2563EB] font-bold uppercase tracking-wider text-sm flex items-center hover:underline">
                                     Watch Past Sessions <ArrowRight size={16} className="ml-2" />
                                 </Link>
                             </div>
@@ -156,9 +139,7 @@ const Transform: React.FC = () => {
                         {/* 3. Youth Bodh */}
                         <div className="flex flex-col md:flex-row items-center gap-12">
                             <div className="md:w-1/2">
-                                <div className="h-[400px] w-full bg-[#4EB8B9]/10 rounded-3xl flex items-center justify-center">
-                                    <Heart size={100} className="text-[#4EB8B9]" />
-                                </div>
+                            <img src="/assets/youthbodh.avif" alt="Youth Bodh" className="h-[400px] w-full object-cover rounded-3xl shadow-lg mb-6 md:mb-0" />
                             </div>
                             <div className="md:w-1/2">
                                 <div className="flex items-center mb-4">
@@ -171,7 +152,7 @@ const Transform: React.FC = () => {
                                 <p className="text-gray-600 leading-relaxed mb-8">
                                     These techniques positively influence emotions, resulting in calmness and stability of the mind, leading to positive actions at the outermost physical level. Scientifically validated studies are available online.
                                 </p>
-                                <Link to="/transform/watch/bodh" className="text-[#4EB8B9] font-bold uppercase tracking-wider text-sm flex items-center hover:underline">
+                                <Link to="#" className="text-[#4EB8B9] font-bold uppercase tracking-wider text-sm flex items-center hover:underline">
                                     Learn Techniques <ArrowRight size={16} className="ml-2" />
                                 </Link>
                             </div>
@@ -180,9 +161,7 @@ const Transform: React.FC = () => {
                          {/* 4. YGPT Club */}
                          <div className="flex flex-col md:flex-row-reverse items-center gap-12">
                             <div className="md:w-1/2">
-                                <div className="h-[400px] w-full bg-[#FDB913]/10 rounded-3xl flex items-center justify-center">
-                                    <Users size={100} className="text-[#FDB913]" />
-                                </div>
+                                <img src="/assets/ygptclub.avif" alt="YGPT Club" className="h-[400px] w-full object-cover rounded-3xl shadow-lg mb-6 md:mb-0" />
                             </div>
                             <div className="md:w-1/2">
                                 <div className="flex items-center mb-4">
@@ -204,9 +183,7 @@ const Transform: React.FC = () => {
                         {/* 5. YGPT Youth Camp */}
                         <div className="flex flex-col md:flex-row items-center gap-12">
                             <div className="md:w-1/2">
-                                <div className="h-[400px] w-full bg-[#00A651]/10 rounded-3xl flex items-center justify-center">
-                                    <Tent size={100} className="text-[#00A651]" />
-                                </div>
+                                <img src="/assets/ygptcamp.png" alt="YGPT Youth Camp" className="h-[400px] w-full object-cover rounded-3xl shadow-lg mb-6 md:mb-0" />
                             </div>
                             <div className="md:w-1/2">
                                 <div className="flex items-center mb-4">
@@ -225,9 +202,7 @@ const Transform: React.FC = () => {
                          {/* 6. Let's Talk */}
                          <div className="flex flex-col md:flex-row-reverse items-center gap-12">
                             <div className="md:w-1/2">
-                                <div className="h-[400px] w-full bg-pink-100 rounded-3xl flex items-center justify-center">
-                                    <Instagram size={100} className="text-pink-500" />
-                                </div>
+                            <img src="/assets/letstalk.avif" alt="Let's Talk" className="h-[400px] w-full object-cover rounded-3xl shadow-lg mb-6 md:mb-0" />
                             </div>
                             <div className="md:w-1/2">
                                 <div className="flex items-center mb-4">
@@ -240,7 +215,7 @@ const Transform: React.FC = () => {
                                 <p className="text-gray-600 leading-relaxed mb-8">
                                     We provide them with insights and answers that resonate with their daily struggles and aspirations.
                                 </p>
-                                <Link to="/transform/watch/lets-talk" className="text-pink-600 font-bold uppercase tracking-wider text-sm flex items-center hover:underline">
+                                <Link to="#" className="text-pink-600 font-bold uppercase tracking-wider text-sm flex items-center hover:underline">
                                     Watch Episodes <PlayCircle size={16} className="ml-2" />
                                 </Link>
                             </div>
@@ -249,9 +224,7 @@ const Transform: React.FC = () => {
                         {/* 7. 1:1 Mentoring */}
                         <div className="flex flex-col md:flex-row items-center gap-12">
                             <div className="md:w-1/2">
-                                <div className="h-[400px] w-full bg-[#936FB1]/10 rounded-3xl flex items-center justify-center">
-                                    <MessageCircle size={100} className="text-[#936FB1]" />
-                                </div>
+                            <img src="/assets/mentoring.avif" alt="1:1 Mentoring" className="h-[400px] w-full object-cover rounded-3xl shadow-lg mb-6 md:mb-0" />
                             </div>
                             <div className="md:w-1/2">
                                 <div className="flex items-center mb-4">
@@ -264,7 +237,7 @@ const Transform: React.FC = () => {
                                 <p className="text-gray-600 leading-relaxed mb-8">
                                     Unique to YGPT, mentors play the role of friends and confidants, lending a listening ear, providing reassurance, and reaffirming faith with positivity.
                                 </p>
-                                <a href="#" className="text-[#F47C20] font-bold underline hover:text-orange-600">
+                                <a href="http://ilistenu.com/" className="text-[#F47C20] font-bold underline hover:text-orange-600">
                                     Feeling Low? We are here to help you!
                                 </a>
                             </div>
@@ -273,9 +246,7 @@ const Transform: React.FC = () => {
                         {/* 8. Bharat Yuva Parivatran Yatra */}
                         <div className="flex flex-col md:flex-row-reverse items-center gap-12">
                             <div className="md:w-1/2">
-                                <div className="h-[400px] w-full bg-[#F47C20]/10 rounded-3xl flex items-center justify-center">
-                                    <MapPin size={100} className="text-[#F47C20]" />
-                                </div>
+                            <img src="/assets/BYPY.avif" alt="Bharat Yuva Parivartan Yatra" className="h-[400px] w-full object-cover rounded-3xl shadow-lg mb-6 md:mb-0" />
                             </div>
                             <div className="md:w-1/2">
                                 <div className="flex items-center mb-4">
@@ -290,7 +261,7 @@ const Transform: React.FC = () => {
                                     <li className="flex items-start"><span className="w-1.5 h-1.5 bg-[#F47C20] rounded-full mt-2 mr-2"></span><strong>Unity:</strong> Building emotional connections across regions.</li>
                                     <li className="flex items-start"><span className="w-1.5 h-1.5 bg-[#F47C20] rounded-full mt-2 mr-2"></span><strong>Practical Guidance:</strong> Actionable takeaways for life.</li>
                                 </ul>
-                                <Link to="/transform/watch/yatra" className="text-[#F47C20] font-bold uppercase tracking-wider text-sm flex items-center hover:underline">
+                                <Link to="#" className="text-[#F47C20] font-bold uppercase tracking-wider text-sm flex items-center hover:underline">
                                     Watch Highlights <ArrowRight size={16} className="ml-2" />
                                 </Link>
                             </div>
@@ -319,7 +290,7 @@ const Transform: React.FC = () => {
                             <p className="text-gray-600 leading-relaxed mb-8">
                                 We introduce Him as a Guide or Divine Friend, to fuel their spiritual journey and forge the bond of true friendship - a bond etched in love, comfort, self-expression and freedom.
                             </p>
-                            <Link to="/transform/watch/maitreya" className="bg-[#F47C20] text-white px-8 py-3 rounded-full font-bold hover:bg-orange-600 transition shadow-lg inline-block">
+                            <Link to="#" className="bg-[#F47C20] text-white px-8 py-3 rounded-full font-bold hover:bg-orange-600 transition shadow-lg inline-block">
                                 Learn More About Maitreya
                             </Link>
                         </div>

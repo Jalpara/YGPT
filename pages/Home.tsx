@@ -152,8 +152,11 @@ We are helping them to free themselves internally of blocks and biases accumulat
       <section className="py-20 bg-[#936FB1] text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
-            <div className="w-24 h-24 bg-white/20 rounded-full mx-auto mb-8 flex items-center justify-center">
-                 <span className="font-serif text-4xl italic">M</span>
+            <div className="w-32 relative h-32 bg-white/20 rounded-full mx-auto mb-8 flex items-center justify-center bg-gradient-to-b from-[#936FB1] to-transparent">
+                 <img className="w-full h-full object-cover rounded-full"
+                        src="/assets/dada.webp"
+                        alt="Dada" 
+                          />
             </div>
             <blockquote className="font-serif italic text-3xl md:text-4xl leading-relaxed max-w-4xl mx-auto mb-8 text-white/90">
                 "Love is the only way to transform yourself and the world around you. Be the source of love."
