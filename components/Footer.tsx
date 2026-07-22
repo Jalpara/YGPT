@@ -27,10 +27,10 @@ const Footer: React.FC = () => {
                Igniting the inner light in youth globally. Join the movement for peace, transformation, and service.
              </p>
              <div className="flex space-x-4 pt-2">
-              <a href="#" className="bg-white/10 p-2 rounded-full hover:bg-[#F47C20] transition text-white"><Facebook size={18} /></a>
-              <a href="#" className="bg-white/10 p-2 rounded-full hover:bg-[#4EB8B9] transition text-white"><Twitter size={18} /></a>
-              <a href="#" className="bg-white/10 p-2 rounded-full hover:bg-[#936FB1] transition text-white"><Instagram size={18} /></a>
-              <a href="#" className="bg-white/10 p-2 rounded-full hover:bg-[#FDB913] transition text-white"><Youtube size={18} /></a>
+              <a href="https://www.facebook.com/ygpt.india/" className="bg-white/10 p-2 rounded-full hover:bg-[#F47C20] transition text-white"><Facebook size={18} /></a>
+              <a href="https://x.com/ygpt_india" className="bg-white/10 p-2 rounded-full hover:bg-[#4EB8B9] transition text-white"><Twitter size={18} /></a>
+              <a href="https://www.instagram.com/ygpt.india/" className="bg-white/10 p-2 rounded-full hover:bg-[#936FB1] transition text-white"><Instagram size={18} /></a>
+              <a href="https://www.youtube.com/@YGPTINDIA" className="bg-white/10 p-2 rounded-full hover:bg-[#FDB913] transition text-white"><Youtube size={18} /></a>
             </div>
           </div>
 
@@ -49,9 +49,7 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-lemon text-lg mb-6 text-[#4EB8B9]">Community</h4>
             <ul className="space-y-3 text-sm text-gray-400">
-              <li><Link to="/clubs" className="hover:text-white hover:translate-x-1 transition-transform inline-block">Global Chapters</Link></li>
-              <li><Link to="/fan-art" className="hover:text-white hover:translate-x-1 transition-transform inline-block">Member Creations</Link></li>
-              <li><Link to="/transform" className="hover:text-white hover:translate-x-1 transition-transform inline-block">LMS Portal</Link></li>
+              <li><Link to="/clubs" className="hover:text-white hover:translate-x-1 transition-transform inline-block">YGPT Clubs</Link></li>
               <li><Link to="/get-involved" className="hover:text-white hover:translate-x-1 transition-transform inline-block">Volunteer</Link></li>
             </ul>
           </div>
@@ -66,16 +64,16 @@ const Footer: React.FC = () => {
                 </li>
                 <li className="flex items-center">
                     <Mail className="mr-3 flex-shrink-0 text-[#F47C20]" size={16} />
-                    <a href="mailto:hello@ygpt.org" className="hover:text-white">hello@ygpt.org</a>
+                    <a href="mailto:info@ygpt.in" className="hover:text-white">info@ygpt.in</a>
                 </li>
                 <li className="flex items-center">
                     <Phone className="mr-3 flex-shrink-0 text-[#F47C20]" size={16} />
-                    <a href="tel:8929707222" className="hover:text-white font-bold">89297 07222</a>
+                    <a href="tel:+919136992712" className="hover:text-white font-bold">+91 9136992712</a>
                 </li>
             </ul>
             <div className="mt-6">
                 <Link to="/contact" className="bg-white/10 hover:bg-white/20 text-white px-6 py-2 rounded-lg font-bold text-sm transition block text-center border border-white/20">
-                    Contact Support
+                    Get In Touch
                 </Link>
             </div>
           </div>
@@ -91,7 +89,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Developer / Test Controls */}
+        {/* Developer / Test Controls 
         <div className="mt-8 pt-4 border-t border-gray-800 text-center">
             <p className="text-[10px] text-gray-600 mb-2 uppercase tracking-widest font-bold">Notification Test Controls (Dev Only)</p>
             <div className="flex justify-center gap-4">
@@ -103,6 +101,7 @@ const Footer: React.FC = () => {
                 </button>
             </div>
         </div>
+        */}
       </div>
     </footer>
   );

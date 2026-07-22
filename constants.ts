@@ -4,7 +4,7 @@ import { ColorDef, YGPTColors, SpotlightClub, Event, Badge, LeaderboardEntry, Te
 // START: LOGO CONFIGURATION
 // To change the logo, upload your image to the public/assets folder or use an external URL.
 // Then update this constant. Example: 'https://example.com/logo.png'
-export const CUSTOM_LOGO_URL = './assets/logo.avif'; // Leave empty to use the dynamic SVG logo
+export const CUSTOM_LOGO_URL = '.public/assets/logo.avif'; // Leave empty to use the dynamic SVG logo
 // END: LOGO CONFIGURATION
 
 export const NAV_LINKS = [
@@ -272,24 +272,31 @@ export const LEADERBOARD: LeaderboardEntry[] = [
 export const TESTIMONIALS: Testimonial[] = [
     {
         id: '1',
-        name: "Priya Sharma",
-        role: "Student Leader, Delhi",
-        quote: "YGPT gave me the tools to manage my exam stress and find a community that truly cares about making a difference.",
-        image: "https://i.pravatar.cc/150?u=priya"
+        name: "Asmi Patel",
+        role: "Sports Management Professional",
+        quote: "YGPT is truly my second family. I walked in uncertain, but the warm smiles and open arms made me feel instantly at home.",
+        image: ""
     },
     {
         id: '2',
-        name: "John Doe",
-        role: "Volunteer, New York",
-        quote: "The leadership programs are world-class. I've learned more here about empathy and team building than in my MBA.",
-        image: "https://i.pravatar.cc/150?u=john"
+        name: "Falaksh Desai",
+        role: "YGPT Member",
+        quote: "YGPT is more than an organization — it's a space where I can truly be myself. It embraces our fears and insecurities, offering love, friendship, growth, and transformation. Here, we encourage and inspire one another, discovering our inner potential and creating lasting bonds. YGPT is where I belong, and I invite you to experience this amazing journey!",
+        image: ""
     },
     {
         id: '3',
-        name: "Maria Garcia",
-        role: "Club Lead, Madrid",
-        quote: "Starting a YGPT club on my campus transformed the university culture. We are now a hub for peace and sustainability.",
-        image: "https://i.pravatar.cc/150?u=maria"
+        name: "Roshni Nathani",
+        role: "AVP at Dexif Fintech",
+        quote: "Finding a space that truly supports growth is rare, but YGPT has been that place for me. It's where I've felt safe, supported, and believed in — even when I doubted myself. YGPT has made me more confident, connected, and ready to give back. Through meaningful work for society, I've found fulfilment and purpose beyond myself.",
+        image: ""
+    },
+    {
+        id: '4',
+        name: "Aditya Rao",
+        role: "Director, Cindral OPC Pvt Ltd",
+        quote: "YGPT truly lives up to its name as a space for youth peace and transformation. The welcoming members quickly became like family, and YGPT effortlessly helped me build values and qualities. Here, I experienced real peace and harmony while radiating positivity to make the world a happier place.",
+        image: ""
     }
 ];
 

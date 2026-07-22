@@ -21,7 +21,6 @@ const Sitemap: React.FC = () => {
             links: [
                 { name: "Our Story", path: "/about" },
                 { name: "Our Founder", path: "/founder" },
-                { name: "Meet My Maitreya", path: "/meet-my-maitreya" },
                 { name: "Our Impact", path: "/impact" }
             ]
         },
@@ -38,10 +37,8 @@ const Sitemap: React.FC = () => {
             title: "Community & Activities",
             icon: <Users size={20} className="text-[#936FB1]" />,
             links: [
-                { name: "Global Chapters (Clubs)", path: "/clubs" },
+                { name: "YGPT Clubs", path: "/clubs" },
                 { name: "Events Calendar", path: "/events" },
-                { name: "Transform (LMS)", path: "/transform" },
-                { name: "Member Creations", path: "/fan-art" }
             ]
         },
         {

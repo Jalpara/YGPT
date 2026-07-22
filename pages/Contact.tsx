@@ -202,8 +202,8 @@ const Contact: React.FC = () => {
                         <div className="p-8 mt-auto hidden md:block">
                             <h4 className="font-bold text-gray-800 mb-4">Contact Info</h4>
                             <div className="space-y-4 text-sm text-gray-600">
-                                <div className="flex items-center"><Mail size={16} className="mr-3 text-[#FDB913]"/> contact@ygpt.org</div>
-                                <div className="flex items-center"><Phone size={16} className="mr-3 text-[#FDB913]"/> +1 (555) 123-4567</div>
+                                <div className="flex items-center"><Mail size={16} className="mr-3 text-[#FDB913]"/> info@ygpt.in</div>
+                                <div className="flex items-center"><Phone size={16} className="mr-3 text-[#FDB913]"/> +91 9136992712</div>
                                 <div className="flex items-center"><MapPin size={16} className="mr-3 text-[#FDB913]"/> 123 Peace Ave, Global City</div>
                             </div>
                         </div>

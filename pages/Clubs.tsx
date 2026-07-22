@@ -30,7 +30,7 @@ const Clubs: React.FC = () => {
             <div className="container mx-auto px-4">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-8">
                      <div>
-                        <h1 className="text-4xl font-lemon text-[#FDB913] mb-2">Global Chapters</h1>
+                        <h1 className="text-4xl font-lemon text-[#FDB913] mb-2">YGPT Clubs</h1>
                         <p className="text-gray-500">Connect with a YGPT family near you.</p>
                      </div>
                      <button 

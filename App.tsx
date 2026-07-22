@@ -17,7 +17,6 @@ import Events from './pages/Events';
 import Contact from './pages/Contact';
 import Sitemap from './pages/Sitemap';
 import BrandGuidelines from './pages/BrandGuidelines';
-import FanArtPage from './pages/FanArt';
 import ImpactPage from './pages/Impact';
 import { ShareSomeLove, YouthDevelopment, EarthEmbrace } from './pages/Verticals';
 import { PrivacyPolicy, TermsOfService, CookiePolicy } from './pages/Legal';
@@ -60,7 +59,6 @@ const Layout: React.FC = () => {
                     <Route path="/join" element={<Contact />} />
 
                     <Route path="/brand" element={<BrandGuidelines />} />
-                    <Route path="/fan-art" element={<FanArtPage />} />
                     <Route path="/sitemap" element={<Sitemap />} />
 
                     {/* Verticals */}

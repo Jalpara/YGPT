@@ -132,27 +132,17 @@ const Home: React.FC = () => {
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#FDB913]/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
 
                 <div className="flex flex-col items-center relative z-10 text-center p-12 md:p-20">
-                    <div className="mb-6">
-                        <span className="text-[#FDB913] font-lemon tracking-widest text-sm uppercase mb-2 block border border-[#FDB913] rounded-full px-4 py-1 inline-block">The Source of Inspiration</span>
-                    </div>
                     
                     <h2 className="font-lemon text-4xl md:text-6xl text-[#FDB913] mb-8 leading-tight drop-shadow-lg">
-                        Meet My Maitreya
+                        Chinta Mukt Bharat 2032
                     </h2>
                     
                     <p className="text-lg md:text-xl text-blue-50 mb-10 leading-relaxed max-w-3xl mx-auto">
-                        A profound annual event held every August where seekers from around the globe gather to experience the transformative presence of Maitreya Dadashreeji.
+                        We are enabling youth to explore their passion, goals & dreams through transformational seminars and social activities for humanity. We provide a safe space for youth to transform into their natural self, accepting them without judgement and bringing out their best qualities.
                     </p>
                     
                     <p className="text-blue-200 mb-10 italic text-2xl font-serif">
-                        "Come, experience the source of limitless love."
-                    </p>
-
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link to="/meet-my-maitreya" className="bg-[#FDB913] text-[#001D4A] px-10 py-4 rounded-full font-bold hover:bg-yellow-400 transition shadow-lg flex items-center justify-center transform hover:scale-105 duration-200">
-                            View Event Details <ArrowRight size={18} className="ml-2" />
-                        </Link>
-                    </div>
+We are helping them to free themselves internally of blocks and biases accumulated from societal pressure which is the first step towards a stress-free state & the wider vision of Chinta Mukt Bharat 2032.                    </p>
                 </div>
             </div>
         </div>
@@ -489,7 +479,7 @@ const Home: React.FC = () => {
           </div>
       )}
 
-      {/* 7. Transform (LMS) Preview */}
+     {/*
       <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
               <div className="flex flex-col md:flex-row justify-between items-end mb-12">
@@ -509,7 +499,7 @@ const Home: React.FC = () => {
                       { title: "Emotional Intelligence", time: "3 Weeks", level: "All Levels", color: "bg-orange-100" }
                   ].map((course, idx) => (
                       <div key={idx} className="bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-xl transition shadow-sm group">
-                          {/* Replaced Image with Colored Div */}
+                       
                           <div className={`h-40 ${course.color} flex items-center justify-center transition duration-500 group-hover:scale-105`}>
                               <Users size={48} className="text-gray-400 opacity-50" />
                           </div>
@@ -532,11 +522,12 @@ const Home: React.FC = () => {
               </div>
           </div>
       </section>
+      */}
 
       {/* 8. Testimonials */}
       <section className="py-20 bg-[#333333] text-white">
           <div className="container mx-auto px-4">
-              <h2 className="font-lemon text-3xl text-center text-[#F47C20] mb-16">Voices of YGPT</h2>
+              <h2 className="font-lemon text-3xl text-center text-[#F47C20] mb-16">Hear From Our Changemakers</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   {TESTIMONIALS.map((t, idx) => {
                       const colors = ['bg-[#F47C20]', 'bg-[#FDB913]', 'bg-[#4EB8B9]'];
