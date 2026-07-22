@@ -39,19 +39,30 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const { start, end } = monthBounds(month);
   const today = todayUtcDateString();
 
-  const { data, error } = await supabase
+  const { data: monthData, error: monthError } = await supabase
     .from('events')
     .select(SELECT)
     .in('status', [...PUBLIC_STATUSES])
+    .lte('event_date', end)
     .or(
-      `and(event_date.gte.${start},event_date.lte.${end}),and(event_end_date.gte.${start},event_end_date.lte.${end}),event_date.gte.${today}`
+      `event_end_date.gte.${start},and(event_end_date.is.null,event_date.gte.${start})`
     )
     .order('event_date', { ascending: true });
 
-  if (error) {
-    console.error('events query failed', error);
+  const { data: upcomingData, error: upcomingError } = await supabase
+    .from('events')
+    .select(SELECT)
+    .in('status', [...PUBLIC_STATUSES])
+    .gte('event_date', today)
+    .order('event_date', { ascending: true })
+    .limit(50);
+
+  if (monthError || upcomingError) {
+    console.error('events query failed', monthError || upcomingError);
     return res.status(500).json({ error: 'Failed to fetch events' });
   }
 
-  return res.status(200).json(buildEventsResponse((data ?? []) as PublicEventRow[], month));
+  const rows = [...(monthData ?? []), ...(upcomingData ?? [])] as PublicEventRow[];
+  const uniqueRows = [...new Map(rows.map((row) => [row.id, row])).values()];
+  return res.status(200).json(buildEventsResponse(uniqueRows, month));
 }
