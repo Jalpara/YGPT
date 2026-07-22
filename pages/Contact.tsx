@@ -25,6 +25,12 @@ const Contact: React.FC = () => {
     const [formError, setFormError] = useState<string | null>(null);
     const [formSuccess, setFormSuccess] = useState<string | null>(null);
 
+    const switchTab = (tab: 'volunteer' | 'partner' | 'contact') => {
+        setActiveTab(tab);
+        setFormError(null);
+        setFormSuccess(null);
+    };
+
     const beginSubmission = () => {
         setSubmitting(true);
         setFormError(null);
@@ -33,6 +39,7 @@ const Contact: React.FC = () => {
 
     const handleVolunteerSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        if (submitting) return;
         beginSubmission();
 
         try {
@@ -52,6 +59,7 @@ const Contact: React.FC = () => {
 
     const handlePartnerSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        if (submitting) return;
         beginSubmission();
 
         try {
@@ -71,6 +79,7 @@ const Contact: React.FC = () => {
 
     const handleContactSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        if (submitting) return;
         beginSubmission();
 
         try {
@@ -255,7 +264,7 @@ const Contact: React.FC = () => {
                     <div className="md:w-1/3 bg-gray-100 border-r border-gray-200">
                         <div className="p-6 md:p-8 space-y-2">
                             <button 
-                                onClick={() => setActiveTab('volunteer')}
+                                onClick={() => switchTab('volunteer')}
                                 className={`w-full flex items-center p-4 rounded-xl transition-all duration-300 ${
                                     activeTab === 'volunteer' 
                                     ? 'bg-white shadow-md text-[#00A651] translate-x-2 border-l-4 border-[#00A651]' 
@@ -270,7 +279,7 @@ const Contact: React.FC = () => {
                             </button>
 
                             <button 
-                                onClick={() => setActiveTab('partner')}
+                                onClick={() => switchTab('partner')}
                                 className={`w-full flex items-center p-4 rounded-xl transition-all duration-300 ${
                                     activeTab === 'partner' 
                                     ? 'bg-white shadow-md text-[#936FB1] translate-x-2 border-l-4 border-[#936FB1]' 
@@ -285,7 +294,7 @@ const Contact: React.FC = () => {
                             </button>
 
                             <button 
-                                onClick={() => setActiveTab('contact')}
+                                onClick={() => switchTab('contact')}
                                 className={`w-full flex items-center p-4 rounded-xl transition-all duration-300 ${
                                     activeTab === 'contact' 
                                     ? 'bg-white shadow-md text-[#F47C20] translate-x-2 border-l-4 border-[#F47C20]' 
