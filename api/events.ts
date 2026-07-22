@@ -1,0 +1,57 @@
+import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { createClient } from '@supabase/supabase-js';
+import {
+  buildEventsResponse,
+  monthBounds,
+  parseMonthParam,
+  todayUtcDateString,
+  type PublicEventRow,
+} from '../lib/public-events';
+
+const PUBLIC_STATUSES = ['funded', 'completed', 'report_submitted'] as const;
+
+const SELECT =
+  'id, title, description, goal, event_date, event_end_date, start_time, end_time, location, venue_gmaps_link, region, event_pillar, status';
+
+function getSupabase() {
+  const url = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !key) return null;
+  return createClient(url, key, {
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
+}
+
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  if (req.method !== 'GET') {
+    res.setHeader('Allow', 'GET');
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  const supabase = getSupabase();
+  if (!supabase) {
+    return res.status(500).json({ error: 'Server misconfigured' });
+  }
+
+  const month = parseMonthParam(
+    typeof req.query.month === 'string' ? req.query.month : undefined
+  );
+  const { start, end } = monthBounds(month);
+  const today = todayUtcDateString();
+
+  const { data, error } = await supabase
+    .from('events')
+    .select(SELECT)
+    .in('status', [...PUBLIC_STATUSES])
+    .or(
+      `and(event_date.gte.${start},event_date.lte.${end}),and(event_end_date.gte.${start},event_end_date.lte.${end}),event_date.gte.${today}`
+    )
+    .order('event_date', { ascending: true });
+
+  if (error) {
+    console.error('events query failed', error);
+    return res.status(500).json({ error: 'Failed to fetch events' });
+  }
+
+  return res.status(200).json(buildEventsResponse((data ?? []) as PublicEventRow[], month));
+}
